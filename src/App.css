@@ -1,38 +1,144 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+main {
+  display: flex;
+  height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.main-content {
+  background-color: #fff;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* SIDEBAR */
+
+.sidebar {
+  background: #FAFAFA;
+  width: 350px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #6A6A6A;
+}
+
+.sidebar li {
+  font-family: 'Nunito', sans-serif;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 25px;
+  padding-left: 67px;
+  text-align: start;
+  margin-bottom: 40px;
+}
+
+.sidebar ul .opt1 {
+  margin-top: 60px;
+  font-weight: bold;
+}
+
+/* AVATAR */
+
+
+.image-avatar {
+  width: 90px;
+  height: 90px;
+  margin-top: 85px;
+  border-radius: 45px;
+}
+
+.subtitle {
+  margin-top: 15px;
+  font-family: 'Nunito', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 27px;
+  color: #727272;
+}
+
+.subinfo {
+  margin-top: 5px;
+  font-family: 'Nunito', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+  color: #727272;
+}
+
+/* OPTIONS */
+
+
+
+/* MAIN */
+
+.main-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  width: 100%;
+}
+
+.content-up {
+  flex: 1;
+}
+.content-down {
+  flex: 2;
+}
+
+/* RESUME */
+
+.resume-box {
+  background-color: #FAFAFA;
+  width: 236px;
+  height: 87px;
+  border-radius: 15px;
+}
+
+.resume-flex {
+  display: flex;
+}
+.title--number {
+  color: #595959;
+  font-family: 'Nunito', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 33px;
+}
+
+.icon--space {
+  text-align: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #fff;
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
 }
 
-.App-link {
-  color: #61dafb;
+.icon--space img{
+  margin-top: 16px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
