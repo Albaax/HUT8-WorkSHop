@@ -2,7 +2,7 @@ import React, { useState, useEffect} from 'react';
 import './App.css';
 import Sidebar from './Components/Sidebar';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import ResumeScreen from './Containers/ResumeScreen';
+import Dashboard from './Containers/Dashboard';
 import MyCourseScreen from './Containers/MyCoursesScreen';
 import { getUser } from './services/requests';
 
@@ -27,17 +27,14 @@ function App() {
       
       <main className="App">
         <Sidebar props={user}/>
-        <div className="main-content">
-            <Switch>
-              <Route exact path="/">
-                <ResumeScreen props={user}/>
-              </Route>
-              <Route exact path="/containers/mycoursesscreen">
-                <MyCourseScreen />
-              </Route>
-            </Switch>
-        </div>
-
+          <Switch>
+            <Route exact path="/">
+              <Dashboard props={user}/>
+            </Route>
+            <Route path="/containers/mycoursesscreen">
+              <MyCourseScreen />
+            </Route>
+          </Switch>
       </main>
     </Router>
   )
