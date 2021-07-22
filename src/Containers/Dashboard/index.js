@@ -17,12 +17,12 @@ const Dashboard = (proprieties) => {
             </div>
             <h2 className="title--down">Próximas Atividades</h2>
             <div className="content-down">
-                    { proprieties?.props?.nextActivities?.map( (activity, index) => {
-                        return (
-                            <Activities key={index} props={activity} />
-                        )
-                    }) }
-                    <div className="activities"></div>
+                { proprieties?.props?.nextActivities?.map( (activity, index) => {
+                    return (
+                        <Activities key={index} props={activity} />
+                    )
+                }) }
+                <div className="activities"></div>
             </div>
         </div>
     )

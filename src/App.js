@@ -4,10 +4,11 @@ import Sidebar from './Components/Sidebar';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Dashboard from './Containers/Dashboard';
 import MyCourseScreen from './Containers/MyCoursesScreen';
-import { getUser } from './services/requests';
+import { getUser, getCourses } from './services/requests';
 
 function App() {
   const [user, setUser] = useState([]);
+  const [courses, setCourses] = useState([]);
 
   useEffect(() => {
     const getUserData = async () => {
@@ -18,7 +19,17 @@ function App() {
         console.err(err)
       }
     }
-    getUserData()
+    const getCoursesData = async () => {
+      try {
+        const { data } = await getCourses()
+        setCourses(data)
+      } catch (err) {
+        console.err(err)
+      }
+    }
+ 
+    getUserData();
+    getCoursesData();
   }, [])
 
   return (
@@ -30,8 +41,8 @@ function App() {
           <Route exact path="/">
             <Dashboard props={user}/>
           </Route>
-          <Route path="/containers/mycoursesscreen">
-            <MyCourseScreen props={user}/>
+          <Route path="/mycoursesscreen">
+            <MyCourseScreen props={courses}/>
           </Route>
         </Switch>
       </main>

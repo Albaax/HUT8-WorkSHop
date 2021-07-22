@@ -4,10 +4,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Nunito', sans-serif;
-
-}
-.App {
-  text-align: center;
 }
 
 main {
@@ -25,6 +21,7 @@ main {
 .sidebar {
   background: #FAFAFA;
   width: 20%;
+  text-align: center;
 }
 
 .sidebar a {
@@ -84,8 +81,13 @@ main {
   padding: 0px 140px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   width: 80%;
+}
+
+.main-courses {
+  display: flex;
+  flex-direction: row;
+  column-gap: 40px;
 }
 
 .content-down {
@@ -115,7 +117,7 @@ main {
 
 .text-content {
   text-align: start;
-  flex: 2.5;
+  flex: 3.5;
 }
 
 .icon-content {
@@ -143,7 +145,7 @@ main {
 
 .title--up, .title--down {
   font-style: normal;
-  font-weight: 600;
+  font-weight: 550;
   font-size: 26px;
   line-height: 35px;
   color: #555555;
@@ -187,6 +189,8 @@ main {
 .image-course {
   flex: 3;
   background-color: #ddd;
+  border-radius: 20px 20px 0px 0px;
+
 }
 
 .text-course {
@@ -194,7 +198,7 @@ main {
   font-style: normal;
   border-radius: 0 0 20px 20px;
   background-color: #FAFAFA;
-
+  padding: 5% 10%;
 }
 
 /* content */
@@ -205,10 +209,8 @@ main {
   border-radius: 20px 20px 0px 0px;
 }
 
-.text-course p, .text-course h3 {
-  margin-top: 8px;
+.text-course p{
   text-align: start;
-  margin-left: 10%;
 } 
 .text-course--1 {
   font-weight: 400;
@@ -222,11 +224,14 @@ main {
   font-size: 12px;
   line-height: 16px;
   color: #4B4B4B;
+  text-align: start;
+  margin-top: 7px
 }
 
 .text-course--3 {
+  margin-top: 11px;
   font-weight: normal;
-  font-size: 8px;
+  font-size: 9px;
   line-height: 11px;
   color: #8E8E8E;
 }
