@@ -1,15 +1,17 @@
-import { act } from 'react-dom/cjs/react-dom-test-utils.production.min';
 import '../../../src/App.css';
 import Activities from '../../Components/Activities';
+import { Link } from 'react-router-dom';
 
-const MyCourseScreen = (proprieties) => {
+const MyCourses = (proprieties) => {
     return(
         <div className="main-content">
             <h2 className="title--up title--down">Meus cursos</h2>
             <div className="main-courses">
                 { proprieties.props.map( (course) => {
                     return(
-                        <Activities key={course.id} props={course} />
+                        <Link key={course.id} to={`/mycourses/${course.course.substr(0, course.course.indexOf(' '))}}`}>
+                            <Activities props={course} />
+                        </Link>
                     )
                 }) }
                  <div className="activities"></div>
@@ -18,4 +20,4 @@ const MyCourseScreen = (proprieties) => {
     )
 }
 
-export default MyCourseScreen;
+export default MyCourses;

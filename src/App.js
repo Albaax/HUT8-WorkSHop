@@ -3,8 +3,8 @@ import './App.css';
 import Sidebar from './Components/Sidebar';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Dashboard from './Containers/Dashboard';
-import MyCourseScreen from './Containers/MyCoursesScreen';
 import { getUser, getCourses } from './services/requests';
+import MyCourses from './Containers/MyCourses';
 
 function App() {
   const [user, setUser] = useState([]);
@@ -41,8 +41,8 @@ function App() {
           <Route exact path="/">
             <Dashboard props={user}/>
           </Route>
-          <Route path="/mycoursesscreen">
-            <MyCourseScreen props={courses}/>
+          <Route path="/mycourses">
+            <MyCourses props={courses}/>
           </Route>
         </Switch>
       </main>

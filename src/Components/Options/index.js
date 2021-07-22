@@ -1,14 +1,15 @@
 import '../../../src/App.css';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Options = () => {
+
+
+
     return (
-        <>
-            <ul>
-                <li className="opt1"><Link to="/">Dashboard</Link></li>
-                <li><Link to="/containers/mycoursesscreen">Meus cursos</Link></li>
+            <ul className="options">
+                <li><NavLink exact className="link" activeClassName="link-active" to="/">Dashboard</NavLink></li>
+                <li><NavLink exact className="link" activeClassName="link-active" to="/mycourses">Meus cursos</NavLink></li>
             </ul>
-        </>
     )
 }
 
