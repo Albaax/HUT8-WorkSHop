@@ -1,8 +1,9 @@
 import '../../../src/App.css';
+
 const Resume = (proprieties) => {
     let property = proprieties.props;
     if(proprieties.props < 10){
-        property = `0${proprieties.props}`
+        property = `0${proprieties.props}`;
     }
     return (
         <div className="resume-box">

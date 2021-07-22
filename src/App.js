@@ -20,21 +20,20 @@ function App() {
     }
     getUserData()
   }, [])
-  
+
   return (
     
     <Router>
-      
       <main className="App">
         <Sidebar props={user}/>
-          <Switch>
-            <Route exact path="/">
-              <Dashboard props={user}/>
-            </Route>
-            <Route path="/containers/mycoursesscreen">
-              <MyCourseScreen />
-            </Route>
-          </Switch>
+        <Switch>
+          <Route exact path="/">
+            <Dashboard props={user}/>
+          </Route>
+          <Route path="/containers/mycoursesscreen">
+            <MyCourseScreen props={user}/>
+          </Route>
+        </Switch>
       </main>
     </Router>
   )
