@@ -1,21 +1,27 @@
 import '../../../src/App.css';
 import Activities from '../../Components/Activities';
-import { Link } from 'react-router-dom';
+import { Route, useRouteMatch, Switch } from 'react-router-dom';
+import CourseScreen from '../CourseScreen';
 
 const MyCourses = (proprieties) => {
+    const { url, path } = useRouteMatch();
+    let displayGone = "display--gone"
     return(
         <div className="main-content">
-            <h2 className="title--up title--down">Meus cursos</h2>
+            <h1 className={`title--up title--down ${displayGone} `}>Meus cursos</h1>
             <div className="main-courses">
                 { proprieties.props.map( (course) => {
                     return(
-                        <Link key={course.id} to={`/mycourses/${course.course.substr(0, course.course.indexOf(' '))}}`}>
-                            <Activities props={course} />
-                        </Link>
+                        <Activities key={course.id} props={course} urlProp={url} />
                     )
                 }) }
-                 <div className="activities"></div>
+                 <div className="activities "></div>
             </div>
+            <Switch>
+                <Route path={`${path}/:course`} >
+                    <CourseScreen props={proprieties.props} />
+                </Route>
+            </Switch>
         </div>
     )
 }

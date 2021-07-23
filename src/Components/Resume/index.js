@@ -5,6 +5,7 @@ const Resume = (proprieties) => {
     if(proprieties.props < 10){
         property = `0${proprieties.props}`;
     }
+    
     return (
         <div className="resume-box">
             <div className="text-content">

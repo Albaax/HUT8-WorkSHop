@@ -31,7 +31,6 @@ function App() {
     getUserData();
     getCoursesData();
   }, [])
-
   return (
     
     <Router>
@@ -51,3 +50,9 @@ function App() {
 }
 
 export default App;
+
+// // { courses.map( (course) => {
+//   <Route key={course.id} path={`/${course.course}`}>
+//   <h1>BABA</h1>
+// </Route>
+// })}
