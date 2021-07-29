@@ -2,12 +2,12 @@ import '../../../src/App.css';
 
 // props receive an object of Sidebar component
 
-const Avatar = (proprieties) => {
+const Avatar = (properties) => {
     return (
         <>
-            <img className="image-avatar" alt={proprieties.props.name} src={proprieties.props.avatar}/>
-            <h2 className="subtitle">{proprieties.props.name}</h2>
-            <p className="subinfo">{proprieties.props.course}</p>
+            <img className="image-avatar" alt={properties.props.name} src={properties.props.avatar}/>
+            <h2 className="subtitle">{properties.props.name}</h2>
+            <p className="subinfo">{properties.props.course}</p>
         </>
     )
 }

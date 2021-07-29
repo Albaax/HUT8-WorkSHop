@@ -31,18 +31,33 @@ function App() {
     getUserData();
     getCoursesData();
   }, [])
+
+  const routes = [
+    {
+      path: '/',
+      exact: true,
+      main: () => <Dashboard props={user} />,
+    },
+    {
+      path: '/mycourses',
+      main: () => <MyCourses props={courses} />,
+    },
+  ]
+  
   return (
     
     <Router>
       <main className="App">
         <Sidebar props={user}/>
         <Switch>
-          <Route exact path="/">
-            <Dashboard props={user}/>
-          </Route>
-          <Route path="/mycourses">
-            <MyCourses props={courses}/>
-          </Route>
+        {routes.map((route, i) => (
+            <Route
+              key={i}
+              path={route.path}
+              exact={route.exact}
+              children={<route.main />}
+            />
+          ))}
         </Switch>
       </main>
     </Router>
@@ -50,9 +65,3 @@ function App() {
 }
 
 export default App;
-
-// // { courses.map( (course) => {
-//   <Route key={course.id} path={`/${course.course}`}>
-//   <h1>BABA</h1>
-// </Route>
-// })}

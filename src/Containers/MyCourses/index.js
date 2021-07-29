@@ -1,27 +1,37 @@
 import '../../../src/App.css';
+import { useState } from 'react';
 import Activities from '../../Components/Activities';
-import { Route, useRouteMatch, Switch } from 'react-router-dom';
+import { Route, useRouteMatch, Switch, useParams } from 'react-router-dom';
 import CourseScreen from '../CourseScreen';
 
-const MyCourses = (proprieties) => {
+const MyCourses = (properties) => {
     const { url, path } = useRouteMatch();
-    let displayGone = "display--gone"
-    return(
+    let { course } = useParams();
+    const [routeCourse, setRouteCourse] = useState(true);
+    const showCourse = () => setRouteCourse(!routeCourse);
+
+    return (
         <div className="main-content">
-            <h1 className={`title--up title--down ${displayGone} `}>Meus cursos</h1>
-            <div className="main-courses">
-                { proprieties.props.map( (course) => {
-                    return(
-                        <Activities key={course.id} props={course} urlProp={url} />
-                    )
-                }) }
-                 <div className="activities "></div>
-            </div>
+            { routeCourse ? 
+            <>
+                <h1 className={`title--up title--down up`}>Meus cursos</h1>
+                <div className="main-courses">
+                    { properties.props.map( (course) => {
+                        return(
+                            <div onClick={showCourse} key={course.id} className="activities ">
+                                <Activities props={course} urlProp={url} />
+                            </div>
+                        )
+                    }) }
+                        <div className="activities "></div>
+                </div>
+            </> : 
             <Switch>
                 <Route path={`${path}/:course`} >
-                    <CourseScreen props={proprieties.props} />
+                    <CourseScreen props={properties.props} />
                 </Route>
             </Switch>
+            }
         </div>
     )
 }
