@@ -1,19 +1,36 @@
 import { useParams } from 'react-router-dom';
 import '../../App.css';
+import React, { useEffect, useState } from 'react';
 import Activities from '../../Components/Activities';
 import Resume from '../../Components/Resume';
 import firstIcon from '../../_images/firstIcon.png';
 import secondIcon from '../../_images/secondIcon.png';
 import thirdIcon from '../../_images/thirdIcon.png';
+import { getCourses } from '../../services/requests';
 
 const CourseScreen = (properties) => {
     let { course } = useParams();
+    const [ theCourse, setTheCourse] = useState([]);
 
+    useEffect(() => {
+        
+        const getCourseDatas = async () => {
+            try {
+                const { data } = await getCourses()
+                setTheCourse(data)
+            } catch(err) {
+                console.log(err)
+          }
+        }
+  
+        getCourseDatas();
+      }, [])
+    
     let i = 0;
-    if (course.charAt(0) === 'A') {
+    if (course === 'A') {
         i = 1;
     }
-
+  
     return (
         <div className="course-screen">
             <div className="class-info">
@@ -38,8 +55,7 @@ const CourseScreen = (properties) => {
             </div>
             <h1 className="title--course">Próximas Atividades</h1>
             <div className="content-down">
-                {console.log(properties?.props[i]?.nextActivities)}
-                { <Activities props={properties?.props[i]?.nextActivities}/> }
+                { theCourse[i]?.nextActivities?.map( activity => <Activities key={theCourse[i].id} props={activity}/> )}
                 <div className="activities"></div>
                 <div className="activities"></div>
             </div>
