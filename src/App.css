@@ -337,6 +337,55 @@ img:hover {
 @media screen and (max-width: 600px ) {
   .main-content { 
     width: 100%;
+    padding: 0 10px;
+  }
+  .icon svg {
+    position: absolute;
+    display: block;
+  }
+  /* SIDEBAR */
+  .sidebar {
+    display: none;
+    min-width: 200px;
+  }
+  .sidebar-opened {
+    width: 100px;
+    display: block;
+    min-width: 100px;
+    transition: all .700s ease;
+  }
+
+  .sidebar-opened:hover {
+    width: 150px;
+    padding: 0 5px;
+  }
+
+  .sidebar-opened .subtitle {
+    font-size: 15px;
+    line-height: 18px;
+  }
+  .sidebar-opened .subinfo {
+    font-size: 11px;
+  }
+
+  .image-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+  }
+  /* OPTIONS */
+
+  .options a{
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .options li {
+    padding-left: 10px;
+  }
+  
+  /*MAIN CONTENT */
+  .resume-box {
+    height: 80px;
   }
 }
 @media screen and (max-width: 830px) {
@@ -368,11 +417,12 @@ img:hover {
   }  
   .content-up {
     justify-content: center;
+    flex-direction: column;
   }
   .main-courses, .main-content h1 {
     flex-direction: column;
     row-gap: 30px;
-    min-width: 320px;
+    min-width: 300px;
   }
   .title--up {
     margin-top: 10%;
@@ -381,7 +431,6 @@ img:hover {
     margin-top: 10px;
     margin-bottom: 20px;
   }
-
   /* COURSES SCREEN */
   .class-info .title--course {
     padding: 0;
@@ -402,21 +451,20 @@ img:hover {
   }
 
 }
-@media screen and (max-width: 1000px) {
+
+@media screen and (max-width: 1000px) and (min-width: 600px) {
   .sidebar {
     display: none;
     min-width: 200px;
-    transition: all .300s ease;
   }
   .sidebar-opened {
     display: block;
     min-width: 200px;
-    transition: all .300s ease;
   }
+
   .icon svg {
     position: absolute;
     display: block;
-    transition: all .300s ease;
   }
 }
 
@@ -456,7 +504,7 @@ img:hover {
     flex: 2;
   }  
 }
-@media screen and (max-width: 1500px){
+@media screen and (min-width: 600px) and (max-width: 1500px) {
   .main-content {
     padding: 0px 50px;
     transition: all .5s ease;
